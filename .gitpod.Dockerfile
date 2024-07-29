@@ -1,5 +1,6 @@
-FROM gitpod/gitpod/workspace-full
+FROM gitpod/workspace-full
 
-# Intall Graphviz
-RUN sudo apt-get update \
-    && apt-get -y install Graphviz
+# Clean apt cache, update, and install Graphviz
+RUN sudo rm -rf /var/lib/apt/lists/* \
+    && sudo apt-get update \
+    && sudo apt-get -y install graphviz

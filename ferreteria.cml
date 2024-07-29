@@ -1,0 +1,33 @@
+// Definición de Contexto Principal para la Ferretería DLA
+ContextMap DlaFerreteriaMap {
+    contains AreaVentasContext
+    contains AreaAlmacenContext
+    contains AreaPagosReclamosContext
+    contains AreaLogisticaContext
+
+    /* Cooperación */
+    AreaAlmacenContext [P]<->[P] AreaVentasContext
+    AreaLogisticaContext [P]<->[P] AreaAlmacenContext
+
+    /* Cliente-Proveedor */
+    AreaPagosReclamosContext [C]<-[S] AreaVentasContext
+
+    /* Conformista */
+    AreaAlmacenContext [CF]<-[PL] AreaPagosReclamosContext
+}
+
+BoundedContext AreaVentasContext {
+   
+}
+
+BoundedContext AreaAlmacenContext {
+  
+}
+
+BoundedContext AreaPagosReclamosContext {
+   
+}
+
+BoundedContext AreaLogisticaContext {
+  
+}
